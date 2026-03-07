@@ -1,0 +1,1931 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#00e0c6">
+<link rel="apple-touch-icon" href="icon-192.png">
+
+<title>LEGATO Theory Platform</title>
+
+
+<style>
+
+.legato-footer {
+  background: #001515;
+  color: #ffffff;
+  padding: 5px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  border-top: 3px solid #00f0d0;
+}
+
+.footer-title {
+  color: #00f0d0;
+  font-size: 28px;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.footer-services span {
+  color: #00f0d0;
+  font-weight: bold;
+}
+
+.footer-mode strong {
+  color: #00f0d0;
+}
+
+.footer-contact a {
+  color: #00f0d0;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+.footer-director {
+  margin-top: 20px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#0a1a1f;
+    color:white;
+}
+
+
+
+/* HEADER FIJO PROFESIONAL */
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    padding:30px 20px;
+    background:linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    border-bottom:0px solid #00e0c6;
+    text-align:center;
+}
+
+/* Contenedor superior */
+.logo-legato{
+    position:absolute;
+    right:15px;
+    width:175px;
+height:auto;
+    height:175px;
+ transform:translateY(-35%);
+}
+
+
+
+/* Selector de idioma */
+.idioma-selector{
+    position: absolute;
+    right up: 15px;
+    top: 5;
+ transform:translateY(-100%);
+}
+
+/* Título */
+.titulo{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+    background: linear-gradient(90deg, #00e0c6, #00bfa5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(0,224,198,0.5);
+}
+
+/* Descripción */
+.descripcion{
+    text-align: center;
+    margin-top: 8px;
+    font-size: 14px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.descripcion p{
+    margin: 0;
+}
+/* SECCIÓN GENERAL */
+.seccion{
+    padding:60px 20px;
+    text-align:center;
+}
+
+.titulo-seccion{
+    color:#00e0c6;
+    margin-bottom:40px;
+    text-shadow:0 0 8px rgba(0,224,198,0.4);
+}
+
+.panel-selectores{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.grupo{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+label{
+    color:#00e0c6;
+    font-size:14px;
+}
+
+select{
+    padding:10px 14px;
+    border-radius:8px;
+    border:none;
+    font-size:14px;
+    background:#1c2f36;
+    color:white;
+    border:1px solid #00e0c6;
+}
+
+select:focus{
+    outline:none;
+    box-shadow:0 0 8px #00e0c6;
+}
+
+/* PIANO WRAPPER */
+.piano-wrapper{
+    display:flex;
+    justify-content:center;
+    margin-top:40px;
+    overflow-x:auto;
+}
+
+/* CONTENEDOR PIANO */
+#piano{
+    position:relative;
+    min-width:1150px;
+    height:190px;
+    margin:auto;
+    background:linear-gradient(to bottom, #1a1a1a, #0d0d0d);
+    padding:15px;
+    border-radius:12px;
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.6),
+        inset 0 3px 8px rgba(255,255,255,0.05);
+    box-sizing:border-box;
+}
+
+.white{
+    width:40px;
+    height:160px;
+    background:linear-gradient(to bottom, #ffffff 0%, #f0f0f0 60%, #e2e2e2 100%);
+    border:1px solid #000;
+    box-sizing:border-box;
+    position:relative;
+    z-index:1;
+    display:inline-flex;
+    align-items:flex-end;
+    justify-content:center;
+    font-size:11px;
+    font-weight:bold;
+    color:black;
+    padding-bottom:6px;
+    border-radius:0 0 6px 6px;
+    transition:0.15s;
+}
+
+.white::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:6px;
+    background:rgba(255,255,255,0.7);
+    border-radius:0 0 4px 4px;
+}
+
+.black{
+    width:30px;
+    height:100px;
+    background:linear-gradient(to bottom, #111, #000);
+    position:absolute;
+    top:0;
+    z-index:3;
+    border:1px solid #000;
+    box-shadow:
+        0 4px 8px rgba(0,0,0,0.7),
+        inset 0 3px 5px rgba(255,255,255,0.1);
+    box-sizing:border-box;
+    color:white;
+    font-size:9px;
+    text-align:center;
+    padding-top:75px;
+    border-radius:0 0 5px 5px;
+    transition:0.15s;
+}
+
+.white.active{
+    background:#04cc96;
+    color:black;
+}
+
+.black.active{
+    background:#04cc96;
+    border: 1px solid #000;
+    color:black;
+}
+
+.white.lh{
+    background:#04cc96!important;
+    box-shadow:0 0 12px #3b82f6;
+    color:white;
+}
+
+.black.lh{
+    background:#04cc96 !important;
+    box-shadow:0 0 15px #3b82f6;
+    color:black;
+}
+
+.white.rh{
+    background:#04cc96!important;
+    box-shadow:0 0 12px #ef4444;
+    color:black;
+}
+
+.black.rh{
+    background:#04cc96 !important;
+    box-shadow:0 0 15px #ef4444;
+    color:black;
+}
+
+/* ILUMINAR ESCALAS */
+.white.scale{
+    background:#22c55e !important;
+    color:black;
+    box-shadow:0 0 12px #22c55e;
+}
+
+.black.scale{
+    background:#16a34a !important;
+    color:white;
+    box-shadow:0 0 12px #22c55e;
+}
+
+.seccion3{
+        width:100%;
+        max-width:1200px;
+        margin:auto;
+        padding:40px 20px;
+        text-align:center;
+    }
+
+    .seccion3 h2{
+        color:#00e5ff;
+        margin-bottom:30px;
+    }
+
+    .controles-progresiones{
+        display:flex;
+        justify-content:center;
+        gap:40px;
+        flex-wrap:wrap;
+    }
+
+    .contenedor-boton{
+        margin-top:30px;
+        display:flex;
+        justify-content:center;
+    }
+
+    #btnGenerar{
+        padding:12px 35px;
+        font-size:16px;
+        background:#00e5ff;
+        border:none;
+        border-radius:6px;
+        font-weight:bold;
+        cursor:pointer;
+        transition:0.2s;
+    }
+
+    #btnGenerar:hover{
+        background:#00bcd4;
+        transform:scale(1.05);
+    }
+
+    .progresion-linea{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:10px;
+        margin:25px 0;
+    }
+
+    .acorde-box{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        min-width:60px;
+    }
+
+    .numero-grado{
+        font-size:14px;
+        font-weight:bold;
+        color:#00e5ff;
+    }
+
+    .nombre-acorde{
+        font-size:30px;
+    }
+
+.acorde-box {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: aparecer 0.5s ease forwards;
+}
+
+@keyframes aparecer {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.metronomo-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+    flex-wrap:wrap;
+    margin-top:15px;
+}
+
+#bpmInput{
+    padding:8px;
+    width:80px;
+    border-radius:6px;
+    border:1px solid #00e5ff;
+    background:#1c2f36;
+    color:white;
+    text-align:center;
+}
+
+#compasSelect{
+    padding:8px;
+    border-radius:6px;
+    border:1px solid #00e5ff;
+    background:#1c2f36;
+    color:white;
+}
+
+#startMetro, #stopMetro{
+    padding:10px 20px;
+    border:none;
+    border-radius:6px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+#startMetro{
+    background:#00e5ff;
+}
+
+#startMetro:hover{
+    background:#00bcd4;
+    transform:scale(1.05);
+}
+
+#stopMetro{
+    background:#ef4444;
+    color:white;
+}
+
+#stopMetro:hover{
+    background:#dc2626;
+    transform:scale(1.05);
+}
+
+#indicadorPulso{
+    width:25px;
+    height:25px;
+    border-radius:50%;
+    background:#003b44;
+    margin-top:15px;
+    transition:all 0.08s ease;
+    box-shadow:0 0 0px transparent;
+}
+
+
+.pulso-activo{
+    background:#00e5ff;
+    box-shadow:0 0 20px #00e5ff;
+}
+
+
+
+
+
+/* ================= CIRCULO DE QUINTAS ================= */
+
+.circulo-section{
+    padding:80px 20px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+}
+
+.circulo-section h2{
+    color:#00e0c6;
+    margin-bottom:40px;
+    text-shadow:0 0 12px rgba(0,224,198,0.6);
+}
+
+.circulo-container{
+    position:relative;
+    width:600px;
+    height:600px;
+}
+
+.ring{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+}
+
+.ring.exterior{ width:600px; height:600px; }
+.ring.medio{ width:420px; height:420px; }
+.ring.interior{ width:250px; height:250px; }
+
+.nota-circulo{
+    position:absolute;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#111;
+    border:2px solid #00e0c6;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:14px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.nota-circulo:hover{
+    transform:scale(1.1);
+}
+
+.nota-circulo.activo{
+    background:#00e0c6;
+    color:black;
+    transform:scale(1.2);
+}
+
+.panel-funciones{
+    margin-top:30px;
+    font-size:16px;
+    color:#00e0c6;
+}
+
+</style>
+
+
+
+</head>
+<body>
+
+
+<header>
+
+    <div class="header-top">
+     
+
+        <div class="titulo">
+    <img src="logo.png" class="logo-legato">
+    <span id="textoTitulo">
+        🎼 Bienvenidos a LEGATO Music Academy
+    </span>
+</div>
+        <div class="idioma-selector">
+
+
+    <select id="idioma">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+    </select>
+</div>
+    </div>
+
+    <div class="descripcion">
+        <p class="descripcion">
+
+Plataforma interactiva diseñada por el profesor Freddy Lara para el estudio práctico y visual de la teoría musical.
+
+</p>
+    </div>
+
+</header>
+
+<section class="seccion">
+
+    <div class="panel-selectores">
+
+        <!-- NOTA -->
+        <div class="grupo">
+            <label id="labelNota">Seleccione la Nota:</label>
+            <select id="nota">
+                <option value="">Seleccione</option>
+                <option value="C">C</option>
+                <option value="C#">C#</option>
+                <option value="D">D</option>
+                <option value="D#">D#</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="F#">F#</option>
+                <option value="G">G</option>
+                <option value="G#">G#</option>
+                <option value="A">A</option>
+                <option value="A#">A#</option>
+                <option value="B">B</option>
+            </select>
+        </div>
+
+        <!-- ACORDE -->
+        <div class="grupo">
+            <label id="labelAcorde">Seleccione Acorde:</label>
+            <select id="acorde">
+                <option value="">Seleccione</option>
+                <option value="Mayor">Mayor</option>
+                <option value="Menor">Menor</option>
+                <option value="dim">dim</option>
+                <option value="dim7">dim7</option>
+                <option value="aug">aug</option>
+                <option value="sus4">sus4</option>
+                <option value="sus2">sus2</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="5#">5#</option>
+                <option value="add9(b5)">add9(b5)</option>
+                <option value="m6">m6</option>
+                <option value="6/9">6/9</option>
+                <option value="maj6">maj6</option>
+                <option value="7">7</option>
+                <option value="m7">m7</option>
+                <option value="maj7">maj7</option>
+                <option value="maj9">maj9</option>
+                <option value="m9">m9</option>
+                <option value="m11">m11</option>
+                <option value="11">11</option>
+                <option value="13">13</option>
+            </select>
+        </div>
+
+
+ <!-- BAJO (SLASH) -->
+        <div class="grupo">
+            <label>Bajo (Slash):</label>
+            <select id="bajoSelect">
+                <option value="">Sin bajo especial</option>
+            </select>
+        </div>
+
+    
+        <!-- INVERSIÓN -->
+        <div class="grupo">
+            <label>Inversión:</label>
+            <select id="inversion">
+                <option value="0">Fundamental</option>
+                <option value="1">1ª Inversión</option>
+                <option value="2">2ª Inversión</option>
+            </select>
+        </div>
+
+        <!-- ESCALA -->
+        <div class="grupo">
+            <label id="labelEscala">Seleccione la Escala:</label>
+            <select id="escala">
+                <option value="">Seleccione</option>
+                <option value="Esc. Mayor">Esc. Mayor</option>
+                <option value="Esc. Menor">Esc. Menor</option>
+                <option value="Esc. Armónica">Esc. Armónica</option>
+                <option value="Esc. Melódica">Esc. Melódica</option>
+                <option value="Esc. Pentatónica M">Esc. Pentatónica M</option>
+                <option value="Esc. Pentatónica m">Esc. Pentatónica m</option>
+                <option value="Esc. Blues">Esc. Blues</option>
+                <option value="Esc. Jazz">Esc. Jazz</option>
+                <option value="Esc. Maqam">Esc. Maqam</option>
+            </select>
+        </div>
+
+        
+
+
+
+</section>
+<div class="divider"></div>
+
+
+<section class="seccion">
+
+   <h2 style="color:white;">🎹 Modo Piano</h2>
+
+<div id="nombreAcorde" style="
+    font-size:40px;
+    font-weight:bold;
+    color:#00e0c6;
+    margin-bottom:15px;
+">
+-
+</div>
+
+<div class="piano-wrapper">
+    <div id="piano"></div>
+</div>
+
+</section>
+
+<script>
+
+const piano = document.getElementById("piano");
+
+
+// ================= MOTOR DE AUDIO =================
+
+function reproducirNota(nota){
+
+    const ruta = "samples/" + encodeURIComponent(nota) + ".mp3";
+
+    const audio = new Audio(ruta);
+    audio.currentTime = 0;
+    audio.play().catch(e => console.log("Error audio:", e));
+
+}
+
+const notes = ["C","D","E","F","G","A","B"];
+const blackAfter = {
+    "C":true,
+    "D":true,
+    "E":false,
+    "F":true,
+    "G":true,
+    "A":true,
+    "B":false
+};
+
+const whiteWidth = 40;
+let whiteIndex = 0;
+
+// CREAR PIANO
+for(let octave=0; octave<5; octave++){
+    notes.forEach(note => {
+
+        let white = document.createElement("div");
+        white.className = "white";
+        white.innerText = note;
+        white.dataset.note = note + octave;
+        piano.appendChild(white);
+
+        if(blackAfter[note]){
+            let black = document.createElement("div");
+            black.className = "black";
+            black.innerText = note + "#";
+            black.dataset.note = note + "#" + octave;
+
+            black.style.left =
+                (whiteIndex * whiteWidth + whiteWidth - 0) + "px";
+
+            piano.appendChild(black);
+        }
+
+        whiteIndex++;
+    });
+}
+
+function limpiarTeclas(){
+    document.querySelectorAll(".white, .black")
+        .forEach(k=>{
+            k.classList.remove("active","lh","rh");
+        });
+}
+
+
+const teclas = document.querySelectorAll(".white, .black");
+
+let notasTocadas = [];
+
+teclas.forEach(tecla => {
+
+    tecla.addEventListener("click", function(){
+
+        const nota = this.dataset.note;
+
+        reproducirNota(nota);
+
+        // iluminar tecla
+        this.classList.add("active");
+
+        setTimeout(()=>{
+            this.classList.remove("active");
+        },300);
+
+        // guardar nota tocada
+        notasTocadas.push(nota.replace(/[0-9]/g,""));
+
+        detectarAcorde();
+
+    });
+
+});
+
+function activarManos(izquierda, derecha){
+
+    limpiarTeclas();
+
+    izquierda.forEach(nota => {
+
+        const tecla = document.querySelector(`[data-note="${nota}"]`);
+
+        if(tecla){
+            tecla.classList.add("lh");
+        }
+    });
+
+    derecha.forEach(nota => {
+
+        const tecla = document.querySelector(`[data-note="${nota}"]`);
+
+        if(tecla){
+            tecla.classList.add("rh");
+        }
+    });
+}
+
+
+const selectorNota = document.getElementById("nota");
+const selectorAcorde = document.getElementById("acorde");
+const selectorEscala = document.getElementById("escala");
+const selectorInversion = document.getElementById("inversion");
+const selectorBajo = document.getElementById("bajoSelect");
+
+
+const escalaCromatica = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+
+function obtenerAcorde(notaBase, tipo){
+
+    let index = escalaCromatica.indexOf(notaBase);
+    if(index === -1) return [];
+
+    const formulas = {
+
+        "Mayor": [0,4,7],
+        "Menor": [0,3,7],
+        "dim": [0,3,6],
+       "dim": [0,3,6,9],
+        "aug": [0,4,8],
+        "sus4": [0,5,7],
+        "sus2": [0,2,7],
+        "5": [0,7],    
+        "5#": [0,8],
+        "add9(b5)": [0,6],
+        "maj6": [0,4,7,9],
+        "m6": [0,8],
+        "6/9": [0,2,4,7,9],
+        "7": [0,4,7,10],
+        "m7": [0,3,7,10],
+        "m11": [0,3,7,10,14,17],
+        "maj7": [0,4,7,11],
+        "maj9": [0,4,7,14],
+        "m9": [0,3,7,14],
+        "11": [0,4,7,10,14,17],
+        "13": [0,4,10,14,21],
+        "Cuarta Perfecta": [0,5]
+    };
+
+    let intervalos = formulas[tipo];
+    if(!intervalos) return [];
+
+   return intervalos.map(i => {
+    let notaIndex = (index + i) % 12;
+    let octavaExtra = Math.floor((index + i) / 12);
+    return escalaCromatica[notaIndex] + (2 + octavaExtra);
+});
+}
+
+function obtenerEscala(notaBase, tipo){
+
+    let index = escalaCromatica.indexOf(notaBase);
+    if(index === -1) return [];
+
+    const formulasEscalas = {
+
+        "Esc. Mayor": [0,2,4,5,7,9,11],
+        "Esc. Menor": [0,2,3,5,7,8,10],
+        "Esc. Armónica": [0,2,3,5,7,8,11],
+        "Esc. Melódica": [0,2,3,5,7,9,11],
+        "Esc. Pentatónica M": [0,2,4,7,9],
+        "Esc. Pentatónica m": [0,3,5,7,10],
+        "Esc. Blues": [0,3,5,6,7,10,12],
+        "Esc. Jazz": [0,2,4,5,7,9,10],   // Mixolidia
+        "Esc. Maqam": [0,1,4,5,7,8,11]
+    };
+
+    let intervalos = formulasEscalas[tipo];
+    if(!intervalos) return [];
+
+    return intervalos.map(i =>
+        escalaCromatica[(index + i) % 12]
+    );
+}
+
+
+
+function actualizarEscala(){
+
+    limpiarTeclas();
+
+    const notaBase = selectorNota.value;
+    const tipoEscala = selectorEscala.value;
+
+    if(!notaBase || !tipoEscala) return;
+
+    selectorAcorde.value = "";
+
+    const escalaCromatica = [
+        "C","C#","D","D#","E","F",
+        "F#","G","G#","A","A#","B"
+    ];
+
+    const formulasEscalas = {
+        "Esc. Mayor": [0,2,4,5,7,9,11,12],
+        "Esc. Menor": [0,2,3,5,7,8,10,12],
+        "Esc. Armónica": [0,2,3,5,7,8,11,12],
+        "Esc. Melódica": [0,2,3,5,7,9,11,12],
+        "Esc. Pentatónica M": [0,2,4,7,9,12],
+        "Esc. Pentatónica m": [0,3,5,7,10,12],
+        "Esc. Blues": [0,3,5,6,7,10,12],
+        "Esc. Jazz": [0,2,4,5,7,9,10,12],
+        "Esc. Maqam": [0,1,4,5,7,8,11,12]
+    };
+
+    let index = escalaCromatica.indexOf(notaBase);
+    if(index === -1) return;
+
+    const intervalos = formulasEscalas[tipoEscala];
+    if(!intervalos) return;
+
+    const OCTAVA_BASE = 2;
+
+    intervalos.forEach((intervalo, i) => {
+
+        let total = index + intervalo;
+        let octavaExtra = Math.floor(total / 12);
+        let notaFinal = escalaCromatica[total % 12] + (OCTAVA_BASE + octavaExtra);
+
+        const tecla = document.querySelector(`[data-note="${notaFinal}"]`);
+
+        if(tecla){
+            tecla.classList.add("scale");
+
+            // 🔊 reproducir sonido en secuencia
+            setTimeout(()=>{
+                reproducirNota(notaFinal);
+            }, i * 200);
+        }
+
+    });
+
+}
+
+
+
+function actualizarAcorde(){
+
+
+    limpiarTeclas(); // 👈 SIEMPRE limpiar primero
+
+    if(typeof selectorNota === "undefined" || 
+       typeof selectorAcorde === "undefined"){
+        return;
+    }
+    let nota = selectorNota.value;
+    let tipo = selectorAcorde.value;
+
+const nombreAcorde = document.getElementById("nombreAcorde");
+
+if(nota && tipo){
+
+    let simbolo = tipo;
+
+    if(tipo === "Mayor") simbolo = "";
+    if(tipo === "Menor") simbolo = "m";
+
+    let bajo = selectorBajo.value;
+
+    if(bajo){
+        nombreAcorde.innerText = nota + simbolo + "/" + bajo;
+    }else{
+        nombreAcorde.innerText = nota + simbolo;
+    }
+
+}else{
+
+    nombreAcorde.innerText = "-";
+
+}
+
+
+    if(!nota || !tipo){
+        if(typeof limpiarTeclas === "function"){
+            limpiarTeclas();
+        }
+        return;
+    }
+
+    // 🔥 LIMPIAR SIEMPRE ANTES DE PINTAR
+    if(typeof limpiarTeclas === "function"){
+        limpiarTeclas();
+    }
+
+    const escala = [
+        "C","C#","D","D#","E","F",
+        "F#","G","G#","A","A#","B",
+    ];
+
+    const acordes = {
+        "Mayor": [0,4,7],
+"Menor": [0,3,7],
+"dim": [0,3,6],
+"dim7": [0,3,6,9],
+"aug": [0,4,8],
+"7": [0,4,7,10],
+"maj7": [0,4,7,11],
+"m7": [0,3,7,10],
+"sus2": [0,2,7],
+"4": [0,5],
+"5": [0,7],
+"5#": [0,8],
+"m6": [0,3,7,9],  
+"6/9": [0,2,4,7,9],    // ← estaba mal
+"maj6": [0,4,7,9],
+"add9(b5)": [0,6],
+"sus4": [0,5,7],
+"maj9": [0,2,4,7,],   // ← mejor estructura
+"m9": [0,3,7,10,14],  // ← corregido
+"11": [0,4,7,10,14,17],  // ← corregido
+"m11": [2,3,5],
+"13": [0,4,7,10,14,17,21]
+
+    };
+
+    let intervalos = acordes[tipo];
+
+    if(!intervalos){
+        console.log("Tipo de acorde no encontrado:", tipo);
+        return;
+    }
+
+    let index = escala.indexOf(nota);
+    if(index === -1) return;
+
+    function calcularNota(intervalo, octavaBase){
+        let total = index + intervalo;
+        let nuevaOctava = octavaBase + Math.floor(total / 12);
+        let notaFinal = escala[total % 12];
+        return notaFinal + nuevaOctava;
+    }
+
+    const OCTAVA_IZQ = 0;
+const OCTAVA_DER = 2;
+
+
+
+const voicingsPianista = {
+
+"Mayor": {
+   izquierda: [0,7,12],      // C-G-C
+   derecha: [0,4,7]          // C-E-G
+},
+
+"Menor": {
+   izquierda: [0,7,12],
+   derecha: [0,3,7]
+},
+
+"dim": {
+   izquierda: [12,18,21],       // C-F#-A
+   derecha: [0,3,6]
+},
+
+"dim7": {
+   izquierda: [12,18,21],       
+   derecha: [0,3,6,9]
+},
+
+"aug": {
+   izquierda: [12,20],         // C-G#
+   derecha: [0,4,8]
+},
+
+"7": {
+   izquierda: [12,19,22],   // C-G-Bb
+   derecha: [0,4,7,10]
+},
+
+"maj7": {
+   izquierda: [12,19],
+   derecha: [0,4,7,11]
+},
+
+"m7": {
+   izquierda: [12,19,22],
+   derecha: [0,3,7]
+},
+
+"sus2": {
+   izquierda: [12,19],
+   derecha: [0,2,7]
+},
+
+"sus4": {
+   izquierda: [12,19],
+   derecha: [0,5,7]
+},
+
+"4": {
+   izquierda: [12,24],
+   derecha: [5,12,17]
+},
+
+"5": {
+   izquierda: [0,12],
+   derecha: [0,7,12]
+},
+
+"add9(b5)": {
+   izquierda: [0,12],
+   derecha: [0,2,4,9]
+},
+
+"5#": {
+   izquierda: [12,19,24],
+   derecha: [0,4,8,12]
+},
+
+"m6": {
+   izquierda: [12,20],
+   derecha: [0,8]
+},
+
+"6/9": {
+   izquierda: [12,19],
+   derecha: [0,2,4,7,9]
+},
+
+"maj6": {
+   izquierda: [12,19],
+   derecha: [0,4,7,9]
+},
+
+"maj(add b5)": {
+   izquierda: [12,23],
+   derecha: [0,4,6]
+},
+
+"maj9": {
+   izquierda: [12,19],
+   derecha: [0,2,4,7]
+},
+
+"m9": {
+   izquierda: [12,19],
+   derecha: [0,2,3,7]
+},
+
+"11": {
+   izquierda: [12,16,19,22],
+   derecha: [0,5]
+},
+
+"m11": {
+   izquierda: [12,19,22],
+   derecha: [0,3,5]
+},
+
+"13": {
+   izquierda: [12,22],
+   derecha: [2,5,9]
+}
+};
+
+
+let izquierda = [];
+let derecha = [];
+
+if(voicingsPianista[tipo]){
+
+   izquierda = voicingsPianista[tipo].izquierda.map(i =>
+      calcularNota(i, OCTAVA_IZQ)
+   );
+
+   derecha = voicingsPianista[tipo].derecha.map(i =>
+      calcularNota(i, OCTAVA_DER)
+   );
+
+} else {
+
+    let notasAcorde = intervalos.map(i => 
+        calcularNota(i, OCTAVA_DER)
+    );
+
+    if(notasAcorde.length > 4){
+        izquierda = notasAcorde.slice(0,4);
+        derecha = notasAcorde.slice(4);
+    }else{
+        izquierda = notasAcorde.slice(0,2);
+        derecha = notasAcorde.slice(2);
+    }
+}
+
+const bajoElegido = selectorBajo.value;
+
+if(bajoElegido){
+
+    izquierda = [];
+
+    const bajoGrave = bajoElegido + "0";
+    const bajoOctava = bajoElegido + "1";
+
+    izquierda.push(bajoGrave);
+    izquierda.push(bajoOctava);
+
+}
+
+// 🔥 APLICAR INVERSIÓN A TODO (SIEMPRE)
+let inversion = parseInt(selectorInversion?.value) || 0;
+
+for(let i = 0; i < inversion; i++){
+
+    // mover primera nota de la derecha
+    if(derecha.length > 0){
+        let notaMovida = derecha.shift();
+        let nombre = notaMovida.slice(0, -1);
+        let octava = parseInt(notaMovida.slice(-1));
+        derecha.push(nombre + (octava + 1));
+    }
+
+}
+
+// 🔥 ACTIVAR PIANO UNA SOLA VEZ
+activarManos(izquierda, derecha);
+
+// 🔥 PINTAR EN EL PIANO
+activarManos(izquierda, derecha);
+
+
+// 🔊 SONIDO DEL ACORDE
+[...izquierda, ...derecha].forEach(nota=>{
+    reproducirNota(nota);
+});
+
+
+} // ← ESTA LLAVE CIERRA actualizarAcorde()
+
+
+
+
+
+function limpiarTeclas(){
+
+    document.querySelectorAll(".white, .black").forEach(tecla => {
+
+        tecla.classList.remove("active");
+        tecla.classList.remove("scale");
+        tecla.classList.remove("lh");
+        tecla.classList.remove("rh");
+        tecla.classList.remove("pressed");
+
+    });
+
+}
+
+
+
+
+selectorAcorde.addEventListener("change", function(){
+    if(selectorNota.value){
+        actualizarAcorde();
+    }
+});
+
+selectorEscala.addEventListener("change", function(){
+    if(!selectorNota.value) return;
+    selectorAcorde.value = "";
+    actualizarEscala();
+});
+
+selectorNota.addEventListener("change", function(){
+
+    // 🔥 CARGAR SELECTOR DE BAJO
+    selectorBajo.innerHTML = '<option value="">Sin bajo especial</option>';
+
+    escalaCromatica.forEach(n=>{
+        let option = document.createElement("option");
+        option.value = n;
+        option.textContent = n;
+        selectorBajo.appendChild(option);
+    });
+
+    // 🔥 Si hay acorde seleccionado, recalcular acorde
+    if(selectorAcorde.value){
+        actualizarAcorde();
+    }
+
+    // 🔥 Si hay escala seleccionada, recalcular escala
+    if(selectorEscala.value){
+        actualizarEscala();
+    }
+
+});
+
+
+
+selectorBajo.addEventListener("change", function(){
+    if(selectorNota.value && selectorAcorde.value){
+        actualizarAcorde();
+    }
+});
+
+selectorInversion.addEventListener("change", function(){
+    if(selectorNota.value && selectorAcorde.value){
+        actualizarAcorde();
+    }
+});
+// CLICK MANUAL CON SONIDO
+document.addEventListener("mousedown", e=>{
+
+    if(e.target.classList.contains("white") || 
+       e.target.classList.contains("black")){
+
+        e.target.classList.add("pressed");
+
+        const nota = e.target.dataset.note;
+        reproducirNota(nota);
+    }
+});
+
+
+</script>
+
+
+
+<div class="seccion3">
+
+<div class="divider"></div>
+
+
+
+    <h2 id="tituloProgresiones">Practiquemos Progresiones</h2>
+
+
+    <div class="controles-progresiones">
+
+        <div>
+    <label id="labelNivel">Seleccione Nivel:</label>
+            <select id="nivelSelect">
+                <option value="">Seleccione Nivel</option>
+                <option value="basico">Básico</option>
+                <option value="intermedio">Intermedio</option>
+                <option value="avanzado">Avanzado</option>
+            </select>
+        </div>
+
+        <div>
+    <label id="labelTonalidad">Seleccione Tonalidad:</label>
+            <select id="tonoSelect">
+                <option value="">Seleccione Tonalidad</option>
+            </select>
+        </div>
+
+    </div>
+
+    <div class="contenedor-boton">
+        <button id="btnGenerar">GENERAR</button>
+    </div>
+
+    <div id="resultadoProgresiones"></div>
+
+</div>
+
+
+<!-- ================= METRÓNOMO LEGATO ================= -->
+
+<section class="seccion">
+
+    <h2 id="tituloMetronomo" style="color:#00e5ff;">
+    🥁 Modo Entrenamiento - Metrónomo
+
+</h2>
+
+    <div class="metronomo-container">
+
+        <div class="grupo">
+            <label>BPM:</label>
+            <input type="number" id="bpmInput" value="80" min="40" max="240">
+        </div>
+
+        <div class="grupo">
+            <label>Compás:</label>
+            <select id="compasSelect">
+                <option value="4">4/4</option>
+                <option value="3">3/4</option>
+                <option value="6">6/8</option>
+            </select>
+        </div>
+
+        <div class="grupo">
+            <button id="startMetro">START</button>
+            <button id="stopMetro">STOP</button>
+        </div>
+
+        <div id="indicadorPulso"></div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+// ================= PROGRESIONES =================
+
+let indiceActual = 0;
+
+const notas = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+
+const progresionesBasico = [
+
+["C","Am","F","G","C"],
+["Am","F","C","G","C"],
+["C","G","Am","F","Dm","G","C"],
+["Am","G","F","Dm","E"],
+["C","E","Am","F","C","G","F"],
+["Am","G","C","F","Dm","F","G","C"],
+["C","F","Am","G","Em","F","G","C"],
+["Am","Em","F","C","G","E","Am","F"],
+["C","G/B","Am","F","C/E","F","G","C"],
+["C","F","G","Em","Am","Dm","G","C"],
+["C","E","F","Am","G","F","C"],
+["Am","F","E","Am","G","F","G","C"],
+["C","F","G","F","C","G","F","C"],
+["Am","Dm","G","C","G","F","G","C"],
+["C","G","Dm","Am","C","G","F"],
+["C","F","G","C","Am","G","F","C"],
+["C","Dm","Am","F","G","C"],
+["Am","F","C","Em","Dm","G","C"],
+["C","G","F","Am","Dm","G","C"],
+["Am","Dm","Am","E","F","G"]
+];
+
+const progresionesIntermedio = [
+  
+["C","Am","C/E","Fadd9","Gsus4","G","C"],
+["C","Dm","C/E","Fadd9","G","C"],
+["C","E","Am","Fadd9","C/E","Fadd9","Gsus4"],
+["C","Gsus4/B","C/A","C/E","F","G","C"],
+["C","Csus2/G","C/A","Csus2/F"],
+["C/A","G/B","C","G/E","F","E","C/A"],
+["C","G/C","F/C","G/C","C"],
+["C","Dm","C/E","Fadd9","Gsus4","Bdim","C"],
+["C","Csus4","C","Csus4/A","Am7","Csus4/F","C"],
+["C","C7","Fadd9","Gadd9","E7","Am7","F"],
+["C","G/B","C/A","Fadd9"],
+["Amadd9","Gadd9","Fadd9","Fadd9/D","Esus4","E"],
+["C","Dm7","G","C","Am7","Dm7","G","C","F7","G/F","Em7","G","C"],
+["C","Fadd9","C","Esus4","E","Am","F","Dm7","G","C"]
+];
+
+const progresionesAvanzado = [
+ 
+  ["Cmaj9","C#dim7","Dm9","G7sus2","Cmaj9"],
+  ["Cmaj9","Em11","A13b9","G13"],
+  ["Cmaj9","C/A","Abm7","Gm7","C9(13)","Fmaj6/9","G7/F","Cmaj9"],
+  ["C","F9","Fmaj9/G","C","F/C","Dm7(9)","G7(9/13)","G7(9)"],
+  ["C","G/B","C/A","C/G","F","C9/E","G4","G","C"],
+  ["C2","C9/A#","A","Dm7","A/C#","Dm7/C","E7","Am","F","C/E","G7(4)","C"],
+  ["C","F","F#dim7","Cmaj9","G/B","C/A","Dm7","Gsus4","G#","Bb","C"],
+  ["Cmaj7","G/B","G/A","Am7","G7(4)","F","Dm7","G4"],
+  ["C7","Am","B7","Em","Dm","C","G7"],
+  ["Cadd9","G13(4)","Cadd9","Gm13","C13","Dm7","Em11","Eb9(b5)/A","Dm9","G13","Cadd)"],
+  ["C9","Eb7M","G#7M","G4"],
+  ["Cmaj9","C/B","Am7","Am/G","F2","Dm7","G4","G","F","G7(4/9)","C"],
+  ["Cmaj7","G13","G7(b9)","Cmaj9","C7(13)","Fmaj9","Fm","C/E","A7(#5)","Dm9","G13","C6/9"],
+  ["Fmaj7","G13","G7(b9)","Cmaj9","C7(13)","Fmaj9","Fm9","C/E","Am9","D7(13)","G13","C6/9"],
+  ["Cmaj7","Gm7(11)","C/E","F","Fmaj7","F6/9(#11)","Dm7","Bbmaj7(13)","Dm9(11)/G","E/Bb","C"],
+  
+];
+
+const tonoSelect = document.getElementById("tonoSelect");
+const nivelSelect = document.getElementById("nivelSelect");
+const resultado = document.getElementById("resultadoProgresiones");
+
+// llenar selector tonos
+notas.forEach(nota=>{
+    let option = document.createElement("option");
+    option.value = nota;
+    option.textContent = nota;
+    tonoSelect.appendChild(option);
+});
+
+document.getElementById("btnGenerar")
+        .addEventListener("click", generarProgresiones);
+
+nivelSelect.addEventListener("change", () => {
+    indiceActual = 0;
+});
+
+function generarProgresiones(){
+
+    const nivel = nivelSelect.value;
+    const tono = tonoSelect.value;
+
+    if(!nivel || !tono) return;
+
+    let lista;
+
+    if(nivel === "basico") lista = progresionesBasico;
+    else if(nivel === "intermedio") lista = progresionesIntermedio;
+    else if(nivel === "avanzado") lista = progresionesAvanzado;
+
+    if(indiceActual >= lista.length){
+        indiceActual = 0;
+    }
+
+    let prog = lista[indiceActual];
+    indiceActual++;
+
+    let indexTono = notas.indexOf(tono);
+
+    let html = `<h3>Progresión ${indiceActual}</h3>`;
+    html += `<div class="progresion-linea">`;
+
+    // Construir escala mayor de la tonalidad
+    const formulaMayor = [0,2,4,5,7,9,11];
+    const escalaTonalidad = formulaMayor.map(i =>
+        notas[(indexTono + i) % 12]
+    );
+
+    prog.forEach((acorde, index) => {
+
+    // 🔥 Separar slash si existe
+    let partes = acorde.trim().split("/");
+    let acordePrincipal = partes[0];
+    let bajoOriginal = partes[1] ? partes[1].trim() : null;
+
+    // Detectar raíz del acorde principal
+    const match = acordePrincipal.match(/^[A-G]#?/);
+if(!match) {
+    console.warn("Acorde inválido:", acordePrincipal);
+    return;
+}
+
+    const raizOriginal = match[0];
+    const tipo = acordePrincipal.slice(raizOriginal.length);
+if(indexTono === -1) return;
+
+    const indexBase = notas.indexOf(raizOriginal);
+    if(indexBase === -1) return;
+
+    const nuevoIndex = (indexBase + indexTono) % 12;
+    const nuevaRaiz = notas[nuevoIndex];
+
+    let nuevoAcorde = nuevaRaiz + tipo;
+
+    // 🔥 TRANSPONER TAMBIÉN EL BAJO SI EXISTE
+    if(bajoOriginal){
+
+        const indexBajo = notas.indexOf(bajoOriginal);
+        if(indexBajo !== -1){
+
+            const nuevoIndexBajo = (indexBajo + indexTono) % 12;
+            const nuevoBajo = notas[nuevoIndexBajo];
+
+            nuevoAcorde += "/" + nuevoBajo;
+        }
+    }
+
+   // 🔥 Calcular grado según nivel
+let gradoIndex = escalaTonalidad.indexOf(nuevaRaiz);
+let grado = "";
+
+if(gradoIndex !== -1){
+
+    // Diatónico normal
+    grado = gradoIndex + 1;
+
+} else {
+
+    if(nivel === "intermedio"){
+        grado = "Paso";
+    }
+
+    if(nivel === "avanzado"){
+
+        escalaTonalidad.forEach((notaEscala, i) => {
+
+            let indexNotaEscala = notas.indexOf(notaEscala);
+            let indexNotaActual = notas.indexOf(nuevaRaiz);
+
+            // ♯ grado
+            if((indexNotaEscala + 1) % 12 === indexNotaActual){
+                grado = "♯" + (i + 1);
+            }
+
+            // ♭ grado
+            if((indexNotaEscala + 11) % 12 === indexNotaActual){
+                grado = "♭" + (i + 1);
+            }
+
+        });
+    }
+}
+
+    html += `
+        <div class="acorde-box" style="animation-delay:${index * 0.15}s">
+            <div class="numero-grado">${grado}</div>
+            <div class="nombre-acorde">${nuevoAcorde}</div>
+        </div>
+    `;
+});
+
+html += `</div>`;
+resultado.innerHTML = html;
+
+}
+</script>
+
+<script>
+
+// ================= METRÓNOMO PROFESIONAL =================
+
+let audioContext = null;
+let intervaloMetro = null;
+let tiempoActual = 0;
+
+const bpmInput = document.getElementById("bpmInput");
+const compasSelect = document.getElementById("compasSelect");
+const indicador = document.getElementById("indicadorPulso");
+
+function crearClick(frecuencia){
+
+    const osc = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+
+    osc.frequency.value = frecuencia;
+    osc.type = "square";
+
+    gain.gain.setValueAtTime(1, audioContext.currentTime);
+    gain.gain.exponentialRampToValueAtTime(
+        0.001,
+        audioContext.currentTime + 0.1
+    );
+
+    osc.connect(gain);
+    gain.connect(audioContext.destination);
+
+    osc.start();
+    osc.stop(audioContext.currentTime + 0.1);
+}
+
+function iniciarMetronomo(){
+
+    if(intervaloMetro) return;
+
+    if(!audioContext){
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    }
+
+    const bpm = parseInt(bpmInput.value);
+    const compas = parseInt(compasSelect.value);
+
+    const intervaloTiempo = (60 / bpm) * 1000;
+
+    tiempoActual = 0;
+
+    intervaloMetro = setInterval(()=>{
+
+        // Acento en tiempo 1
+        if(tiempoActual % compas === 0){
+            crearClick(1200); // más agudo
+        } else {
+            crearClick(800);
+        }
+
+       // Animación visual avanzada
+
+let pulsoNumero = (tiempoActual % compas) + 1;
+
+if(pulsoNumero === 1){
+    indicador.style.background = "#ff1744"; // rojo acento
+    indicador.style.boxShadow = "0 0 18px #ff1744";
+}else{
+    indicador.style.background = "#00e5ff"; // turquesa LEGATO
+    indicador.style.boxShadow = "0 0 14px #00e5ff";
+}
+
+// efecto de crecimiento
+indicador.style.transform = "scale(1.6)";
+
+setTimeout(()=>{
+    indicador.style.transform = "scale(1)";
+    indicador.style.boxShadow = "0 0 0px transparent";
+},100);
+
+tiempoActual++;
+
+}, intervaloTiempo); // 👈 ESTA LÍNEA FALTABA
+
+}
+
+
+
+function detenerMetronomo(){
+    clearInterval(intervaloMetro);
+    intervaloMetro = null;
+}
+
+document.getElementById("startMetro")
+    .addEventListener("click", iniciarMetronomo);
+
+document.getElementById("stopMetro")
+    .addEventListener("click", detenerMetronomo);
+
+</script>
+
+
+</script>
+
+<!-- ================= CIRCULO DE QUINTAS ================= -->
+
+<section class="circulo-section">
+
+<div class="divider"></div>
+
+    <h2 id="tituloCirculo">🎼 CÍRCULO DE QUINTAS INTERACTIVO</h2>
+
+    <div class="circulo-container">
+        <div class="ring exterior" id="ringMayor"></div>
+        <div class="ring medio" id="ringMenor"></div>
+        <div class="ring interior" id="ringDisminuido"></div>
+    </div>
+
+    <div class="panel-funciones" id="panelFunciones">
+    <span id="textoTonalidad">Seleccione una tonalidad</span>
+</div>
+
+</section>
+
+<script>
+
+// ================= CIRCULO DE QUINTAS =================
+
+const mayores = ["C","G","D","A","E","B","F#","C#","G#","D#","A#","F"];
+const menores = ["Am","Em","Bm","F#m","C#m","G#m","D#m","A#m","Fm","Cm","Gm","Dm"];
+const disminuidos = ["B°","F#°","C#°","G#°","D#°","A#°","F°","C°","G°","D°","A°","E°"];
+
+const ringMayor = document.getElementById("ringMayor");
+const ringMenor = document.getElementById("ringMenor");
+const ringDisminuido = document.getElementById("ringDisminuido");
+const panel = document.getElementById("panelFunciones");
+
+function crearAnillo(lista, contenedor, radio){
+
+    lista.forEach((nota, i)=>{
+
+        const angulo = ((i / lista.length) * (2 * Math.PI)) - (Math.PI / 2);
+
+        const x = Math.cos(angulo) * radio;
+        const y = Math.sin(angulo) * radio;
+
+        const div = document.createElement("div");
+        div.className = "nota-circulo";
+        div.innerText = nota;
+
+        div.style.left = `calc(50% + ${x}px - 30px)`;
+        div.style.top = `calc(50% + ${y}px - 30px)`;
+
+        contenedor.appendChild(div);
+
+        if(contenedor === ringMayor){
+            div.addEventListener("click", ()=> activarTonalidad(nota));
+        }
+    });
+}
+
+crearAnillo(mayores, ringMayor, 260);
+crearAnillo(menores, ringMenor, 180);
+crearAnillo(disminuidos, ringDisminuido, 100);
+
+function limpiarActivos(){
+    document.querySelectorAll(".nota-circulo")
+        .forEach(n=>n.classList.remove("activo"));
+}
+
+function activarTonalidad(tonica){
+
+    limpiarActivos();
+
+    const escalaCromatica = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+    const formulaMayor = [0,2,4,5,7,9,11];
+
+    const indexBase = escalaCromatica.indexOf(tonica);
+
+    const escala = formulaMayor.map(i =>
+        escalaCromatica[(indexBase + i) % 12]
+    );
+
+    const t = escala[0];
+    const segunda = escala[1] + "m";
+    const tercera = escala[2] + "m";
+    const cuarta = escala[3];
+    const quinta = escala[4];
+    const relativoMenor = escala[5] + "m";
+    const disminuido = escala[6] + "°";
+
+    document.querySelectorAll(".nota-circulo").forEach(n=>{
+        if(
+            n.innerText === t ||
+            n.innerText === quinta ||
+            n.innerText === cuarta ||
+            n.innerText === relativoMenor ||
+            n.innerText === segunda ||
+            n.innerText === tercera ||
+            n.innerText === disminuido
+        ){
+            n.classList.add("activo");
+        }
+    });
+
+    panel.innerHTML = `
+        Tónica: ${t} |
+        Segunda: ${segunda} |
+        Tercera: ${tercera} |
+        Cuarta: ${cuarta} |
+        Quinta: ${quinta} |
+        Relativo menor: ${relativoMenor} |
+        Disminuido: ${disminuido}
+    `;
+}
+
+const selectorIdioma = document.getElementById("idioma");
+
+
+    const textos = {
+    es: {
+        titulo: "🎼 Bienvenidos a LEGATO Music Academy",
+        descripcion: "Plataforma interactiva diseñada por el profesor Freddy Lara para el estudio práctico y visual de la teoría musical.",
+        nota: "Seleccione la Nota:",
+        acorde: "Seleccione Acorde:",
+        escala: "Seleccione la Escala:",
+        nivel: "Seleccione Nivel:",
+        tonalidad: "Seleccione Tonalidad:",
+        circulo: "🎼 CÍRCULO DE QUINTAS INTERACTIVO",
+        progresiones: "Practiquemos Progresiones",
+        metronomo: "🥁 Modo Entrenamiento - Metrónomo"
+    },
+    en: {
+        titulo: "🎼 Welcome to the LEGATO Music Academy",
+        descripcion: "Interactive platform designed by Professor Freddy Lara for practical and visual music theory study.",
+        nota: "Select Note:",
+        acorde: "Select Chord:",
+        escala: "Select Scale:",
+        nivel: "Select Level:",
+        tonalidad: "Select Key:",
+        circulo: "🎼 INTERACTIVE CIRCLE OF FIFTHS",
+        progresiones: "Practice Progressions",
+        metronomo: "🥁 Training Mode - Metronome"
+
+
+    }
+};
+
+
+// idioma inicial al cargar la página
+let idioma = selectorIdioma.value;
+
+document.getElementById("textoTitulo").textContent = textos[idioma].titulo;
+document.querySelector(".descripcion p").textContent = textos[idioma].descripcion;
+document.getElementById("tituloMetronomo").textContent = textos[idioma].metronomo;
+document.getElementById("tituloCirculo").textContent = textos[idioma].circulo;
+document.getElementById("tituloProgresiones").textContent = textos[idioma].progresiones;
+
+selectorIdioma.addEventListener("change", function(){
+
+    const idioma = this.value;
+    if(!textos[idioma]) return;
+
+    // HEADER
+document.getElementById("textoTitulo").textContent = textos[idioma].titulo;
+    document.querySelector(".descripcion p").textContent = textos[idioma].descripcion;
+
+    // LABELS PRINCIPALES
+    document.getElementById("labelNota").textContent = textos[idioma].nota;
+    document.getElementById("labelAcorde").textContent = textos[idioma].acorde;
+    document.getElementById("labelEscala").textContent = textos[idioma].escala;
+    document.getElementById("labelNivel").textContent = textos[idioma].nivel;
+    document.getElementById("labelTonalidad").textContent = textos[idioma].tonalidad;
+document.getElementById("tituloMetronomo").textContent = textos[idioma].metronomo;
+
+    // SECCIONES
+    document.getElementById("tituloProgresiones").textContent = textos[idioma].progresiones;
+    document.getElementById("tituloCirculo").textContent = textos[idioma].circulo;
+
+});
+
+</script>
+<footer class="legato-footer">
+  <div class="footer-container">
+    
+    <h2 class="footer-title">LEGATO MUSIC ACADEMY</h2>
+
+    <p class="footer-services">
+      Clases de 
+      <span>Piano</span> • 
+      <span>Guitarra</span> • 
+      <span>Ukulele</span> • 
+      <span>Bajo</span> • 
+      <span>Batería</span> • 
+      <span>Lectura Musical</span>
+    </p>
+
+    <p class="footer-mode">
+      Clases <strong>Presenciales y Virtuales</strong> para 
+      <strong>Todas las Edades</strong>
+    </p>
+
+    <div class="footer-contact">
+      <p><strong>📍 Ubicación:</strong> CR, USA</p>
+      <p><strong>📧 Informes:</strong> 
+        <a href="mailto:legatomusicacademy7@gmail.com">
+          legatomusicacademy7@gmail.com
+        </a>
+      </p>
+      <p><strong>📞 Teléfono:</strong> 
+        <a href="tel:+50663756413">
+          +506 6375 6413
+        </a>
+      </p>
+      <p><strong>🌐 Página Web:</strong> 
+        <a href="https://legatomusicacademy.mystrikingly.com" target="_blank">
+          legatomusicacademy.mystrikingly.com
+        </a>
+      </p>
+    </div>
+
+    <p class="footer-director">
+      Director de la Academia: <strong>Freddy Lara</strong>
+    </p>
+
+  </div>
+</footer>
+
+<!-- todo tu contenido -->
+
+
+</script>
+
+<script>
+
+if("serviceWorker" in navigator){
+
+navigator.serviceWorker.register("service-worker.js")
+.then(function(){
+console.log("Service Worker registrado");
+});
+
+}
+</script>
+
+</body>
+</html>
+
+
+
